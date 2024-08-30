@@ -1,0 +1,11 @@
+/*
+
+### Cargo ###
+!/.gitignore
+!/Cargo.lock
+!/Cargo.toml
+
+### Project ###
+!/README.md
+!/src
+!/rusqlite_regex_sys
