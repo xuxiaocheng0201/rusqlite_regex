@@ -1,0 +1,11 @@
+/*
+
+### CMake ###
+!/.gitignore
+!/CMakeLists.txt
+
+### Project ###
+!/contrib
+!/entry.cpp
+!/extension
+/extension/rust.h
