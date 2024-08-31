@@ -2,8 +2,7 @@ use std::ops::Deref;
 
 use once_cell::sync::Lazy;
 use regex::Regex;
-
-use crate::error::Result;
+use rusqlite::Error;
 
 #[allow(dead_code)]
 pub struct RegexCache();
@@ -23,6 +22,10 @@ impl Deref for RegexObject {
 }
 
 
-pub fn compile_regex(re: &str) -> Result<RegexObject> {
-    Ok(RegexObject { regex: Regex::new(re)? })
+fn translate_error(err: regex::Error) -> Error {
+    Error::UserFunctionError(Box::new(err) as _)
+}
+
+pub fn compile_regex(re: &str) -> Result<RegexObject, Error> {
+    Ok(RegexObject { regex: Regex::new(re).map_err(translate_error)? })
 }

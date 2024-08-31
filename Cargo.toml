@@ -1,15 +1,12 @@
 [package]
 name = "rusqlite_regex"
 version = "0.1.0"
+authors = ["xuxiaocheng <2762267080@qq.com>"]
 edition = "2021"
+description = "A regex extension for rusqlite"
 
 [dependencies]
-rusqlite = "~0.32"
+rusqlite = { version = "~0.32", features = ["bundled", "functions"] }
 regex = "^1.10"
 
 once_cell = "^1.19"
-thiserror = "^1.0"
-
-[build-dependencies]
-cbindgen = "~0.27"
-cc = "^1.0"
