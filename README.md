@@ -19,7 +19,7 @@ Add this to your `Cargo.toml`:
 
 ```toml
 [dependencies]
-rusqlite_regex = "~0.1"
+rusqlite_regex = "~0.2"
 ```
 
 
