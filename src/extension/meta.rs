@@ -1,5 +1,13 @@
+//! Meta functions.
+
 use rusqlite::functions::Context;
 
+/// Return the version of current regex extension.
+///
+/// # Usage
+/// ```sql
+/// regex_version()
+/// ```
 #[inline]
 pub fn regex_version(_context: &Context) -> Result<String, rusqlite::Error> {
     Ok(format!("v{}", env!("CARGO_PKG_VERSION")))
