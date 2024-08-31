@@ -15,11 +15,15 @@ fn main() {
         .include("./regex/contrib")
         .include("./regex/extension")
         .file("./regex/entry.cpp")
+        .file("./regex/extension/utils.cpp")
         .file("./regex/extension/meta.cpp")
         .file("./regex/extension/regex.cpp")
         .cpp(true)
         .std("c++14")
         .flag_if_supported("/utf-8")
         .compile("rusqlite_regex");
-    println!("cargo:lib_dir={}", std::env::var("OUT_DIR").unwrap());
+    println!("cargo:rerun-if-changed=./regex/entry.cpp");
+    println!("cargo:rerun-if-changed=./regex/extension/utils.cpp");
+    println!("cargo:rerun-if-changed=./regex/extension/meta.cpp");
+    println!("cargo:rerun-if-changed=./regex/extension/regex.cpp");
 }

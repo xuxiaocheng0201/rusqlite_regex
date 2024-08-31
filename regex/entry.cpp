@@ -1,4 +1,5 @@
 #include "meta.h"
+#include "regex.h"
 
 SQLITE_EXTENSION_INIT1
 
@@ -14,11 +15,12 @@ SQLITE_EXTENSION_INIT1
     }
 
 
-int sqlite3_rusqliteregex_init(sqlite3 *db, char **pzErrMsg, const sqlite3_api_routines *pApi) {
+extern "C" int sqlite3_rusqliteregex_init(sqlite3 *db, char **pzErrMsg, const sqlite3_api_routines *pApi) {
     int rc = SQLITE_OK;
     SQLITE_EXTENSION_INIT2(pApi)
 
     create_function(regex_version, 0);
+    create_function(regex_is_match, 2);
 
     return rc;
 }

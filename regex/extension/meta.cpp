@@ -1,5 +1,6 @@
 #include "utils.h"
 #include "meta.h"
+#include "rust.h"
 
 SQLITE_EXTENSION_INIT3
 

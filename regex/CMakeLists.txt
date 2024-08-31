@@ -12,10 +12,11 @@ add_library(regex STATIC
         contrib/sqlite3.h
         contrib/sqlite3ext.h
         entry.cpp
-        extension/utils.h
         extension/rust.h
+        extension/utils.h
+        extension/utils.cpp
         extension/meta.h
         extension/meta.cpp
-        extension/regex.cpp
         extension/regex.h
+        extension/regex.cpp
 )
