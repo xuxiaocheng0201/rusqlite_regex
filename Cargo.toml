@@ -11,6 +11,15 @@ documentation = "https://docs.rs/rusqlite_regex"
 categories = ["database"]
 keywords = ["database", "sqlite", "extension", "sqlite-extension", "regex"]
 
+include = [
+    "/Cargo.toml",
+    "/src",
+    "/README.md",
+    "/LICENSE-MIT",
+    "/LICENSE-APACHE",
+    "/CHANGELOG.md"
+]
+
 [dependencies]
 rusqlite = { version = "~0.32", features = ["functions"] }
 regex = "^1.10"
