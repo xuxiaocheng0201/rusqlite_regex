@@ -12,7 +12,7 @@ use crate::cache::compile_regex;
 /// ```
 #[inline]
 pub fn regex_is_match(context: &Context) -> Result<bool, rusqlite::Error> {
-    let re = compile_regex(&context.get::<String>(0)?)?;
+    let re = compile_regex(context.get(0)?)?;
     let haystack= context.get::<String>(1)?;
     Ok(re.is_match(&haystack))
 }

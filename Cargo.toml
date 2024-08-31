@@ -24,7 +24,13 @@ include = [
 rusqlite = { version = "~0.32", features = ["functions"] }
 regex = "^1.10"
 
-once_cell = "^1.19"
+once_cell = { version = "^1.19", optional = true }
+quick_cache = { version = "~0.6", optional = true }
+
+[features]
+default = ["cache"]
+
+cache = ["dep:once_cell", "dep:quick_cache"]
 
 [dev-dependencies]
 rusqlite = { version = "~0.32", features = ["bundled", "functions"] }

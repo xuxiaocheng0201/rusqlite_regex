@@ -2,7 +2,7 @@
 #![cfg_attr(docsrs, feature(doc_cfg))]
 #![warn(unsafe_code, missing_docs)]
 
-mod cache;
+pub mod cache;
 pub mod extension;
 
 /// Enable sqlite3_regex_init() as an auto extension.
