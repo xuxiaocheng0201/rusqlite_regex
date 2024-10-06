@@ -46,23 +46,11 @@ mod internal {
 
 #[cfg(not(feature = "cache"))]
 mod internal {
-    use std::ops::Deref;
+    use std::sync::Arc;
 
     use regex::Regex;
 
-    pub(crate) struct RegexObject {
-        regex: Regex,
-    }
-
-    impl Deref for RegexObject {
-        type Target = Regex;
-
-        fn deref(&self) -> &Self::Target {
-            &self.regex
-        }
-    }
-
-    pub(crate) fn compile_regex(re: String) -> Result<RegexObject, rusqlite::Error> {
-        Ok(RegexObject { regex: Regex::new(&re).map_err(super::translate_error)? })
+    pub(crate) fn compile_regex(re: String) -> Result<Arc<Regex>, rusqlite::Error> {
+        Ok(Arc::new(Regex::new(&re).map_err(super::translate_error)))
     }
 }
