@@ -27,6 +27,9 @@ pub unsafe extern "C" fn sqlite3_regex_init(db: *mut ffi::sqlite3, pz_err_msg: *
 
         scalar_function!(connection += regex::regex_is_match(2))?;
         scalar_function!(connection += regex::regexp(2))?;
+        scalar_function!(connection += regex::regex_replace(3))?;
+        scalar_function!(connection += regex::regex_replace_all(3))?;
+        scalar_function!(connection += regex::regex_replacen(4))?;
 
         Ok(())
     })
