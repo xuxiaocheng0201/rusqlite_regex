@@ -8,6 +8,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.3.0] - 2025-1-19
+
+### Added
+
+* 支持 regex_replace、 regex_replace_all 和 regex_replacen
+
+### Changed
+
+* 更新 rusqlite 到 0.33
+
 ## [0.2.0] - 2024-8-31
 
 ### Added
