@@ -21,7 +21,7 @@ include = [
 ]
 
 [dependencies]
-rusqlite = { version = "~0.32", features = ["functions"] }
+rusqlite = { version = "~0.33", features = ["functions"] }
 regex = "^1.11"
 
 once_cell = { version = "^1.20", optional = true }
@@ -33,7 +33,7 @@ default = ["cache"]
 cache = ["dep:once_cell", "dep:quick_cache"]
 
 [dev-dependencies]
-rusqlite = { version = "~0.32", features = ["bundled", "functions"] }
+rusqlite = { version = "~0.33", features = ["bundled", "functions"] }
 
 [package.metadata.docs.rs]
 all-features = true
