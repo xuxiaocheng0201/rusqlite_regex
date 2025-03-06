@@ -4,16 +4,18 @@
 
 pub mod cache;
 pub mod extension;
+pub mod error;
 
 /// Enable sqlite3_regex_init() as an auto extension.
 pub fn enable_auto_extension() -> rusqlite::Result<()> {
     #[allow(unsafe_code)]
-    unsafe { rusqlite::auto_extension::register_auto_extension(extension::sqlite3_regex_init) }
+    error::check_err(unsafe { rusqlite::ffi::sqlite3_auto_extension(Some(extension::sqlite3_regex_init)) })
 }
 
 /// Disable sqlite3_regex_init() as an auto extension.
-pub fn disable_auto_extension() {
-    rusqlite::auto_extension::cancel_auto_extension(extension::sqlite3_regex_init);
+pub fn disable_auto_extension() -> rusqlite::Result<()> {
+    #[allow(unsafe_code)]
+    error::check_err(unsafe { rusqlite::ffi::sqlite3_cancel_auto_extension(Some(extension::sqlite3_regex_init)) })
 }
 
 #[cfg(test)]
