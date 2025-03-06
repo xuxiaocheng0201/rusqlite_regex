@@ -11,7 +11,7 @@ pub mod regex;
 /// The entry point for the SQLite extension.
 #[allow(unsafe_code)]
 pub unsafe extern "C" fn sqlite3_regex_init(db: *mut ffi::sqlite3, pz_err_msg: *mut *mut c_char, _p_api: *const ffi::sqlite3_api_routines) -> c_int {
-    rusqlite::auto_extension::init_auto_extension(db, pz_err_msg, |connection| {
+    unsafe { rusqlite::auto_extension::init_auto_extension(db, pz_err_msg, |connection| {
         macro_rules! scalar_function {
             ($conn: ident += $module: ident::$function: ident($n: literal)) => {
                 $conn.create_scalar_function(
@@ -32,5 +32,5 @@ pub unsafe extern "C" fn sqlite3_regex_init(db: *mut ffi::sqlite3, pz_err_msg: *
         scalar_function!(connection += regex::regex_replacen(4))?;
 
         Ok(())
-    })
+    }) }
 }
