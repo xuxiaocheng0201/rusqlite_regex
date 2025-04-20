@@ -19,7 +19,7 @@ Add this to your `Cargo.toml`:
 
 ```toml
 [dependencies]
-rusqlite_regex = "~0.3"
+rusqlite_regex = "~0.5"
 ```
 
 
@@ -51,6 +51,7 @@ This is the compatible version map between `rusqlite_regex` and `rusqlite`:
 
 | `rusqlite_regex` version | `rusqlite` version |
 |--------------------------|--------------------|
+| =0.5.0                   | ~0.35              |
 | =0.4.0                   | ~0.34              |
 | =0.3.0                   | ~0.33              |
 | =0.2.0                   | ~0.32              |
