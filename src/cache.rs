@@ -22,7 +22,6 @@ mod internal {
     /// Set the regex cache size.
     ///
     /// You must call this function before any regexes are compiled.
-    #[cfg_attr(docsrs, doc(cfg(feature = "cache")))]
     pub fn set_cache_size(size: usize) {
         CACHE_SIZE.store(size, Ordering::Release)
     }
@@ -30,7 +29,6 @@ mod internal {
     /// Get the real regex cache size in used.
     ///
     /// This is the actual capacity of the cache, not the size set by [set_cache_size].
-    #[cfg_attr(docsrs, doc(cfg(feature = "cache")))]
     pub fn get_cache_size() -> usize {
         match Lazy::get(&CACHE) {
             Some(cache) => cache.capacity() as usize,

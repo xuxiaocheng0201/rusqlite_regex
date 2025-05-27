@@ -1,5 +1,5 @@
 #![doc = include_str!("../README.md")]
-#![cfg_attr(docsrs, feature(doc_cfg))]
+#![cfg_attr(docsrs, feature(doc_auto_cfg))]
 #![warn(unsafe_code, missing_docs)]
 
 pub mod cache;
@@ -9,13 +9,15 @@ pub mod error;
 /// Enable sqlite3_regex_init() as an auto extension.
 pub fn enable_auto_extension() -> rusqlite::Result<()> {
     #[allow(unsafe_code)]
-    error::check_err(unsafe { rusqlite::ffi::sqlite3_auto_extension(Some(extension::sqlite3_regex_init)) })
+    let res = unsafe { rusqlite::ffi::sqlite3_auto_extension(Some(extension::sqlite3_regex_init)) };
+    error::check_err(res)
 }
 
 /// Disable sqlite3_regex_init() as an auto extension.
 pub fn disable_auto_extension() -> rusqlite::Result<()> {
     #[allow(unsafe_code)]
-    error::check_err(unsafe { rusqlite::ffi::sqlite3_cancel_auto_extension(Some(extension::sqlite3_regex_init)) })
+    let res = unsafe { rusqlite::ffi::sqlite3_cancel_auto_extension(Some(extension::sqlite3_regex_init)) };
+    error::check_err(res)
 }
 
 #[cfg(test)]

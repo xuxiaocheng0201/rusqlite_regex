@@ -48,7 +48,7 @@ pub fn regex_replace(context: &Context) -> Result<String, rusqlite::Error> {
     let replacer = context.get::<String>(2)?;
     match re.replace(&haystack, &replacer) {
         Cow::Owned(s) => Ok(s),
-        Cow::Borrowed(_) => Ok(haystack), // keep original string if no match
+        Cow::Borrowed(_) => Ok(haystack), // keep the original string if no match
     }
 }
 
@@ -65,7 +65,7 @@ pub fn regex_replace_all(context: &Context) -> Result<String, rusqlite::Error> {
     let replacer = context.get::<String>(2)?;
     match re.replace_all(&haystack, &replacer) {
         Cow::Owned(s) => Ok(s),
-        Cow::Borrowed(_) => Ok(haystack), // keep original string if no match
+        Cow::Borrowed(_) => Ok(haystack), // keep the original string if no match
     }
 }
 
