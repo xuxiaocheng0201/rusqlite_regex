@@ -4,7 +4,7 @@
 [![GitHub last commit](https://img.shields.io/github/last-commit/xuxiaocheng0201/rusqlite_regex)](https://github.com/xuxiaocheng0201/rusqlite_regex/commits/master)
 [![GitHub issues](https://img.shields.io/github/issues-raw/xuxiaocheng0201/rusqlite_regex)](https://github.com/xuxiaocheng0201/rusqlite_regex/issues)
 [![GitHub pull requests](https://img.shields.io/github/issues-pr/xuxiaocheng0201/rusqlite_regex)](https://github.com/xuxiaocheng0201/rusqlite_regex/pulls)
-[![GitHub](https://img.shields.io/github/license/xuxiaocheng0201/rusqlite_regex)](https://github.com/xuxiaocheng0201/rusqlite_regex/blob/master/LICENSE)
+[![GitHub](https://img.shields.io/github/license/xuxiaocheng0201/rusqlite_regex)](https://github.com/xuxiaocheng0201/rusqlite_regex/blob/master/LICENSE-MIT)
 
 
 # Description
@@ -19,7 +19,7 @@ Add this to your `Cargo.toml`:
 
 ```toml
 [dependencies]
-rusqlite_regex = "~0.5"
+rusqlite_regex = "~0.6"
 ```
 
 
@@ -49,14 +49,15 @@ fn main() -> Result<(), rusqlite::Error> {
 
 This is the compatible version map between `rusqlite_regex` and `rusqlite`:
 
-| `rusqlite_regex` version | `rusqlite` version |
-|--------------------------|--------------------|
-| =0.6.0                   | >=0.32,<1.0        |
-| =0.5.0                   | ~0.35              |
-| =0.4.0                   | ~0.34              |
-| =0.3.0                   | ~0.33              |
-| =0.2.0                   | ~0.32              |
-| =0.1.0                   | ~0.32              |
+| `rusqlite_regex` version | `rusqlite` version           |
+|--------------------------|------------------------------|
+| =0.6.1                   | >=0.32,<1.0                  |
+| =0.6.0                   | >=0.32,<1.0 (actually <0.38) |
+| =0.5.0                   | ~0.35                        |
+| =0.4.0                   | ~0.34                        |
+| =0.3.0                   | ~0.33                        |
+| =0.2.0                   | ~0.32                        |
+| =0.1.0                   | ~0.32                        |
 
 
 # License
