@@ -9,7 +9,7 @@ pub mod meta;
 pub mod regex;
 
 /// The entry point for the SQLite extension.
-#[allow(unsafe_code)]
+#[allow(unsafe_code, clippy::missing_safety_doc)]
 pub unsafe extern "C" fn sqlite3_regex_init(db: *mut ffi::sqlite3, pz_err_msg: *mut *mut c_char, _p_api: *const ffi::sqlite3_api_routines) -> c_int {
     unsafe { rusqlite::auto_extension::init_auto_extension(db, pz_err_msg, |connection| {
         macro_rules! scalar_function {

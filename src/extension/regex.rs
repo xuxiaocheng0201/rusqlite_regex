@@ -79,9 +79,9 @@ pub fn regex_replace_all(context: &Context) -> Result<String, rusqlite::Error> {
 pub fn regex_replacen(context: &Context) -> Result<String, rusqlite::Error> {
     let re = compile_regex(context.get(0)?)?;
     let haystack= context.get::<String>(1)?;
-    let limit = context.get::<usize>(2)?;
+    let limit = context.get::<u32>(2)?;
     let replacer = context.get::<String>(3)?;
-    match re.replacen(&haystack, limit, &replacer) {
+    match re.replacen(&haystack, limit as usize, &replacer) {
         Cow::Owned(s) => Ok(s),
         Cow::Borrowed(_) => Ok(haystack), // keep original string if no match
     }
