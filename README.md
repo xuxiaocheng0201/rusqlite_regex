@@ -51,6 +51,7 @@ This is the compatible version map between `rusqlite_regex` and `rusqlite`:
 
 | `rusqlite_regex` version | `rusqlite` version           |
 |--------------------------|------------------------------|
+| =0.6.2                   | >=0.32,<1.0                  |
 | =0.6.1                   | >=0.32,<1.0                  |
 | =0.6.0                   | >=0.32,<1.0 (actually <0.38) |
 | =0.5.0                   | ~0.35                        |

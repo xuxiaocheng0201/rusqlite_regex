@@ -8,6 +8,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.6.2] - 2026-9-17
+
+### Changed
+
+* 更新 quick_cache 到 `0.7`
+* 移除 once_cell
+
 ## [0.6.1] - 2026-2-18
 
 ### Fixed
