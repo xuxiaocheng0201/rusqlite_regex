@@ -8,16 +8,15 @@ fn translate_error(err: regex::Error) -> rusqlite::Error {
 
 #[cfg(feature = "cache")]
 mod internal {
-    use std::sync::Arc;
+    use std::sync::{Arc, LazyLock};
     use std::sync::atomic::{AtomicUsize, Ordering};
 
-    use once_cell::sync::Lazy;
     use quick_cache::sync::Cache;
     use regex::Regex;
 
     static CACHE_SIZE: AtomicUsize = AtomicUsize::new(32);
 
-    static CACHE: Lazy<Cache<Arc<String>, Arc<Regex>>> = Lazy::new(|| Cache::new(CACHE_SIZE.load(Ordering::Acquire)));
+    static CACHE: LazyLock<Cache<Arc<String>, Arc<Regex>>> = LazyLock::new(|| Cache::new(CACHE_SIZE.load(Ordering::Acquire)));
 
     /// Set the regex cache size.
     ///
@@ -30,7 +29,7 @@ mod internal {
     ///
     /// This is the actual capacity of the cache, not the size set by [set_cache_size].
     pub fn get_cache_size() -> usize {
-        match Lazy::get(&CACHE) {
+        match LazyLock::get(&CACHE) {
             Some(cache) => cache.capacity() as usize,
             None => CACHE_SIZE.load(Ordering::Acquire),
         }

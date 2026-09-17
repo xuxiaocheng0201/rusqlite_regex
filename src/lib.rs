@@ -23,8 +23,9 @@ pub fn disable_auto_extension() -> rusqlite::Result<()> {
 #[cfg(test)]
 mod tester {
     pub fn initialize() -> Result<rusqlite::Connection, rusqlite::Error> {
-        static ONCE: once_cell::sync::OnceCell<()> = once_cell::sync::OnceCell::new();
-        ONCE.get_or_try_init(crate::enable_auto_extension)?;
+        static ONCE: std::sync::OnceLock<rusqlite::Result<()>> = std::sync::OnceLock::new();
+        // FIXME: use get_or_try_init once https://github.com/rust-lang/rust/issues/109737 stable
+        ONCE.get_or_init(crate::enable_auto_extension).as_ref().unwrap();
         rusqlite::Connection::open_in_memory()
     }
 
