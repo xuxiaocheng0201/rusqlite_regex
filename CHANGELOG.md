@@ -8,6 +8,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.7.0] - 2026-10-25
+
+### Changed
+
+* 更新 MS-RV 到 `1.89.0`
+
 ## [0.6.2] - 2026-9-17
 
 ### Changed
