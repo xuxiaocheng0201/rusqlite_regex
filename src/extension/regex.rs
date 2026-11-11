@@ -13,7 +13,7 @@ use crate::cache::compile_regex;
 /// regex_is_match(pattern, haystack)
 /// ```
 #[inline]
-pub fn regex_is_match(context: &Context) -> Result<bool, rusqlite::Error> {
+pub fn regex_is_match(context: &mut Context) -> Result<bool, rusqlite::Error> {
     let re = compile_regex(context.get(0)?)?;
     let haystack= context.get::<String>(1)?;
     Ok(re.is_match(&haystack))
@@ -30,7 +30,7 @@ pub fn regex_is_match(context: &Context) -> Result<bool, rusqlite::Error> {
 /// haystack REGEXP pattern
 /// ```
 #[inline]
-pub fn regexp(context: &Context) -> Result<bool, rusqlite::Error> {
+pub fn regexp(context: &mut Context) -> Result<bool, rusqlite::Error> {
     regex_is_match(context)
 }
 
@@ -42,7 +42,7 @@ pub fn regexp(context: &Context) -> Result<bool, rusqlite::Error> {
 /// regex_replace(pattern, haystack, replacer)
 /// ```
 #[inline]
-pub fn regex_replace(context: &Context) -> Result<String, rusqlite::Error> {
+pub fn regex_replace(context: &mut Context) -> Result<String, rusqlite::Error> {
     let re = compile_regex(context.get(0)?)?;
     let haystack= context.get::<String>(1)?;
     let replacer = context.get::<String>(2)?;
@@ -59,7 +59,7 @@ pub fn regex_replace(context: &Context) -> Result<String, rusqlite::Error> {
 /// regex_replace_all(pattern, haystack, replacer)
 /// ```
 #[inline]
-pub fn regex_replace_all(context: &Context) -> Result<String, rusqlite::Error> {
+pub fn regex_replace_all(context: &mut Context) -> Result<String, rusqlite::Error> {
     let re = compile_regex(context.get(0)?)?;
     let haystack= context.get::<String>(1)?;
     let replacer = context.get::<String>(2)?;
@@ -76,7 +76,7 @@ pub fn regex_replace_all(context: &Context) -> Result<String, rusqlite::Error> {
 /// regex_replacen(pattern, haystack, limit, replacer)
 /// ```
 #[inline]
-pub fn regex_replacen(context: &Context) -> Result<String, rusqlite::Error> {
+pub fn regex_replacen(context: &mut Context) -> Result<String, rusqlite::Error> {
     let re = compile_regex(context.get(0)?)?;
     let haystack= context.get::<String>(1)?;
     let limit = context.get::<u32>(2)?;

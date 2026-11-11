@@ -13,7 +13,7 @@ categories = ["database"]
 keywords = ["database", "sqlite", "extension", "sqlite-extension", "regex"]
 
 [dependencies]
-rusqlite = { version = ">=0.32,<=0.41", features = ["functions"] }
+rusqlite = { version = ">=0.42,<=0.42", features = ["functions"] }
 regex = "^1.13"
 # cache
 quick_cache = { version = "~0.7", optional = true }
@@ -24,7 +24,7 @@ default = ["cache"]
 cache = ["dep:quick_cache"]
 
 [dev-dependencies]
-rusqlite = { version = ">=0.32,<=0.41", features = ["bundled", "functions"] }
+rusqlite = { version = ">=0.42,<=0.42", features = ["bundled", "functions"] }
 
 [package.metadata.docs.rs]
 all-features = true

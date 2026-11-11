@@ -9,7 +9,7 @@ use rusqlite::functions::Context;
 /// regex_version()
 /// ```
 #[inline]
-pub fn regex_version(_context: &Context) -> Result<String, rusqlite::Error> {
+pub fn regex_version(_context: &mut Context) -> Result<String, rusqlite::Error> {
     Ok(format!("v{}", env!("CARGO_PKG_VERSION")))
 }
 
