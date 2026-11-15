@@ -3,7 +3,7 @@ name = "rusqlite_regex"
 version = "0.8.0"
 authors = ["xuxiaocheng <2762267080@qq.com>"]
 edition = "2024"
-rust-version = "1.89.0"
+rust-version = "1.94.0"
 description = "A regex extension for rusqlite"
 readme = "README.md"
 license = "MIT OR Apache-2.0"
@@ -13,7 +13,7 @@ categories = ["database"]
 keywords = ["database", "sqlite", "extension", "sqlite-extension", "regex"]
 
 [dependencies]
-rusqlite = { version = ">=0.42,<=0.42", features = ["functions"] }
+rusqlite = { version = ">=0.42,<=0.43", features = ["functions"] }
 regex = "^1.13"
 # cache
 quick_cache = { version = "~0.7", optional = true }
@@ -24,7 +24,7 @@ default = ["cache"]
 cache = ["dep:quick_cache"]
 
 [dev-dependencies]
-rusqlite = { version = ">=0.42,<=0.42", features = ["bundled", "functions"] }
+rusqlite = { version = ">=0.42,<=0.43", features = ["bundled", "functions"] }
 
 [package.metadata.docs.rs]
 all-features = true
