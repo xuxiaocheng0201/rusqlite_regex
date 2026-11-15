@@ -8,6 +8,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.8.1] - 2026-11-15
+
+### Changed
+
+* 更新 rusqlite 到 `>=0.42,<=0.43`
+* 更新 MSRV 到 `1.94.0`
+
 ## [0.8.0] - 2026-11-12
 
 ### Changed

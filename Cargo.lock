@@ -236,7 +236,7 @@ dependencies = [
 
 [[package]]
 name = "rusqlite_regex"
-version = "0.8.0"
+version = "0.8.1"
 dependencies = [
  "quick_cache",
  "regex",
